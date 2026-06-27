@@ -1,4 +1,4 @@
-# tvh_addfile_vdr
+# tvh-import-vdr-records
 
 Import VDR recordings into TVheadend – transfers the MPEG-TS stream into the
 TVheadend recordings directory and registers each entry via the TVheadend REST API.
@@ -73,9 +73,9 @@ The user configured in TVheadend must have **DVR** and **API** permissions.
 ## Installation
 
 ```bash
-git clone https://github.com/Speefak/tvh_addfile_vdr.git
-cd tvh_addfile_vdr
-chmod +x tvh_addfile_vdr.py
+git clone https://github.com/Speefak/tvh-import-vdr-records.git
+cd tvh-import-vdr-records
+chmod +x tvh-import-vdr-records.py
 ```
 
 Edit the default configuration block at the top of the script:
@@ -94,7 +94,7 @@ DEFAULT_TVH_PASS        = 'your_pass'
 ## Usage
 
 ```
-python3 tvh_addfile_vdr.py [OPTIONS]
+python3 tvh-import-vdr-records.py [OPTIONS]
 
 Options:
   -vdrsrc DIR    VDR source directory
@@ -113,22 +113,22 @@ Options:
 
 ```bash
 # Run with all defaults from script header
-python3 tvh_addfile_vdr.py
+python3 tvh-import-vdr-records.py
 
 # Dry run - preview what would happen, no files touched, no API calls
-python3 tvh_addfile_vdr.py -DR
+python3 tvh-import-vdr-records.py -DR
 
 # Move files, overwrite existing destinations
-python3 tvh_addfile_vdr.py -fp move -f
+python3 tvh-import-vdr-records.py -fp move -f
 
 # Custom source and target directories
-python3 tvh_addfile_vdr.py -vdrsrc /srv/vdr/recordings -tvhrc /srv/tvh/recordings
+python3 tvh-import-vdr-records.py -vdrsrc /srv/vdr/recordings -tvhrc /srv/tvh/recordings
 
 # Custom credentials, use hardlinks instead of copying
-python3 tvh_addfile_vdr.py -user admin -pass secret -fp link
+python3 tvh-import-vdr-records.py -user admin -pass secret -fp link
 
 # Full example with all options
-python3 tvh_addfile_vdr.py -vdrsrc /srv/vdr/rec -tvhrc /srv/tvh/rec \
+python3 tvh-import-vdr-records.py -vdrsrc /srv/vdr/rec -tvhrc /srv/tvh/rec \
     -user admin -pass secret -fp copy -f -DR
 ```
 
@@ -150,7 +150,7 @@ python3 tvh_addfile_vdr.py -vdrsrc /srv/vdr/rec -tvhrc /srv/tvh/rec \
 
 ```
 ============================================================
-  tvh_addfile_vdr.py  v0.7
+  tvh-import-vdr-records.py  v0.7
 ============================================================
   VDR source   : /mnt/fstab_virtiofs_tvh-storage/00_vdr
   TVH target   : /mnt/fstab_virtiofs_tvh-storage/recordings
